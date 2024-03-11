@@ -4,7 +4,7 @@ import java.util.*;
 
 public class SecondSolve {
     public static void main(String[] args) {
-        Solution s = new Solution();
+        Solution2 s = new Solution2();
 
         int[] fees = {120, 0, 60, 591};
         String[] records = {"16:00 3961 IN","16:00 0202 IN","18:00 3961 OUT","18:00 0202 OUT","23:58 3961 IN"};
@@ -14,7 +14,7 @@ public class SecondSolve {
 
 }
 
-class Solution {
+class Solution2 {
     public int[] solution(int[] fees, String[] records) {
         int[] answer = {};
 
