@@ -2,7 +2,7 @@ package firstDay;
 
 public class FirstSolve {
     public static void main(String[] args) {
-        Solution s = new Solution();
+        Solution1 s = new Solution1();
 
         int n = 110011;
         int k = 10;
@@ -10,7 +10,7 @@ public class FirstSolve {
     }
 }
 
-class Solution {
+class Solution1 {
     public int solution(int n, int k) {
         if (n <= 0 || k <= 0) {
             return 0;
