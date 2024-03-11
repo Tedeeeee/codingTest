@@ -12,33 +12,32 @@ public class ThirdSolve {
     }
 }
 class Solution3 {
-    ArrayList<String> list = new ArrayList<>();
+
+    int answer;
+    int index;
 
     public int solution(String word) {
 
-        recursion("", 0);
-
-        int count = 0;
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).equals(word)) {
-                count = i;
-                break;
-            }
-        }
-
-        return count;
+        dfs(word, "");
+        return answer;
     }
 
-    void recursion(String s, int i) {
-        char[] alphabet = {'A', 'E', 'I', 'O', 'U'};
-        list.add(s);
-
-        if (i == 5) {
+    void dfs(String word, String text) {
+        if (word.equals(text)) {
+            answer = index;
             return;
         }
 
-        for (int j = 0; j < 5; j++) {
-            recursion(s + alphabet[j], i + 1);
+        index++;
+
+        if (text.length() == 5) {
+            return;
         }
+
+        dfs(word, text+"A");
+        dfs(word, text+"E");
+        dfs(word, text+"I");
+        dfs(word, text+"O");
+        dfs(word, text+"U");
     }
 }
