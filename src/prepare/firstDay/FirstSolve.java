@@ -1,4 +1,4 @@
-package firstDay;
+package prepare.firstDay;
 
 public class FirstSolve {
     public static void main(String[] args) {

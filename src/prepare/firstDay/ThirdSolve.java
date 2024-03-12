@@ -1,6 +1,4 @@
-package firstDay;
-
-import java.util.*;
+package prepare.firstDay;
 
 public class ThirdSolve {
     public static void main(String[] args) {

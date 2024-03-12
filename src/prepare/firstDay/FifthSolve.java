@@ -1,17 +1,17 @@
-package firstDay;
+package prepare.firstDay;
 
 import java.util.*;
 
-public class Fifth {
+public class FifthSolve {
     public static void main(String[] args) {
-        Solution s = new Solution();
+        Solution5 s = new Solution5();
 
         int[] topping = {1, 2, 1, 3, 1, 4, 1, 2};
         s.solution(topping);
     }
 }
 
-class Solution {
+class Solution5 {
     public int solution(int[] topping) {
         int answer = 0;
 

@@ -1,4 +1,4 @@
-package firstDay;
+package prepare.firstDay;
 
 import java.util.*;
 
