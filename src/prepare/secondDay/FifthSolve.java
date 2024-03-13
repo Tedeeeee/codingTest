@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class FifthSolve {
     public static void main(String[] args) {
-        Solution s = new Solution();
+        Solution5 s = new Solution5();
 
         int[] sequence = {1, 1, 1, 2, 3, 4, 5};
         int k = 5;
@@ -12,7 +12,7 @@ public class FifthSolve {
         s.solution(sequence, k);
     }
 }
-class Solution {
+class Solution5 {
     public int[] solution(int[] sequence, int k) {
         int[] answer = new int[2];
 
