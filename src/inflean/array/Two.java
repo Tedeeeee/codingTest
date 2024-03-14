@@ -2,8 +2,8 @@ package inflean.array;
 
 import java.util.*;
 
-// 큰 수 출력하기
-public class One {
+// 보이는 학생
+public class Two {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -15,20 +15,20 @@ public class One {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        solution(N, arr);
+        solution(arr);
     }
 
-    public static void solution(int n, int[] arr) {
-        List<Integer> arrList = new ArrayList<>();
-        arrList.add(arr[0]);
-        for (int i = 1; i < n; i++) {
-            if (arr[i] > arr[i - 1]) {
-                arrList.add(arr[i]);
+    public static void solution(int[] arr) {
+        List<Integer> list = new ArrayList<>();
+        int count = 0;
+        int max = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+                count++;
             }
         }
-
-        for (Integer integer : arrList) {
-            System.out.print(integer + " ");
-        }
+        System.out.println(count);
     }
 }
