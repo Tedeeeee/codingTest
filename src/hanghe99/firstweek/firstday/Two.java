@@ -1,4 +1,4 @@
-package hanghe99.firstweek;
+package hanghe99.firstweek.firstday;
 
 import java.util.HashMap;
 import java.util.Map;
