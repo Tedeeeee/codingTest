@@ -29,6 +29,19 @@ public class Four {
         }
 
         System.out.println(answer);
+
+        char[] charArray = br.readLine().toUpperCase().toCharArray();
+
+        for (char c : charArray) {
+            int index = c - 'A';
+            alpha[index]++;
+            if (alpha[index] > max) {
+                max = alpha[index];
+                answer = c;
+            } else if (alpha[index] == max) {
+                answer = '?';
+            }
+        }
     }
     // 결과
     // 메모리 : 21056KB, 시간 : 288ms

@@ -19,6 +19,7 @@ public class Five {
         }
 
         int max = Arrays.stream(arr).max().getAsInt();
+
         double sum = 0;
         for (int i = 0; i < N; i++) {
             sum += ((double) arr[i] / max) * 100;
