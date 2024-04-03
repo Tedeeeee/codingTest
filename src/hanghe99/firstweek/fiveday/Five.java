@@ -68,7 +68,7 @@ public class Five {
             arr[i][startCol] = arr[i - 1][startCol];
         }
 
-        arr[startCol + 1][startRow] = temp;
+        arr[startCol][startRow + 1] = temp;
     }
 
     // 결과
