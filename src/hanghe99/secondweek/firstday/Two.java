@@ -11,11 +11,11 @@ import java.util.*;
  *
  */
 
-//
+// 메모리 : 14840KB, 시간 : 156ms
 public class Two {
 
-    static Queue<Node> q = new LinkedList<>();
-    static List<Integer> arr = new ArrayList<>();
+    static Queue<Node> q;
+    static List<Integer> arr;
     static int target;
 
     public static void main(String[] args) throws IOException {
@@ -25,6 +25,9 @@ public class Two {
 
         StringTokenizer st;
         for (int i = 0; i < N; i++) {
+            q = new LinkedList<>();
+            arr = new ArrayList<>();
+
             st = new StringTokenizer(br.readLine(), " ");
             int page = Integer.parseInt(st.nextToken());
             int num = Integer.parseInt(st.nextToken());
