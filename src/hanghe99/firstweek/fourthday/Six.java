@@ -31,6 +31,5 @@ public class Six {
         }
         System.out.println(count);
     }
-    // 결과
-    // 메모리 : 14608KB, 시간 : 136ms
+
 }
