@@ -5,6 +5,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
+/**
+ * 시간복잡도가 굉장히 좋지 않습니다.
+ * 정렬을 하는 과정의 시간복잡도는 O(N log N)이지만
+ * while 을 통해 데이터를 N 번 반복하고 그안에 반복문을 통해 N번이 추가된다.
+ * 또한 해당 반복문에는 배열의 요소를 제거하는 구조는 배열의 크기에 비례하여 최악의 경우 O(n)까지 나옵니다
+ * 때문에 O(n2)이되는데 이는 배열의 크기가 거대하면 시간복잡도의 그래프가 급격히 상승합니다
+ */
+
 public class Three {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
