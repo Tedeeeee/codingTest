@@ -18,6 +18,8 @@ public class Two {
         line = Integer.parseInt(st.nextToken());
         start = Integer.parseInt(st.nextToken());
 
+        ArrayList[] arre = new ArrayList[3];
+
         check = new int[node + 1];
 
         for (int i = 0; i <= node; i++) {

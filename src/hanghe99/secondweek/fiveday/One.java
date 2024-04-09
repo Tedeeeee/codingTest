@@ -8,6 +8,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
+/**
+ * 각 노드를 한번씩만 방문하게 된다. 이 부분의 최악의 경우는 모든 노드와 간선을 확인
+ * 시간복잡도는 O(V + E)
+ */
+
 public class One {
     static List<List<Integer>> arr = new ArrayList<>();
     static int[] check;
