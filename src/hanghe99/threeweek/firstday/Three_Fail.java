@@ -1,4 +1,4 @@
-package hanghe99.threeweek;
+package hanghe99.threeweek.firstday;
 
 import java.io.BufferedReader;
 import java.io.IOException;
