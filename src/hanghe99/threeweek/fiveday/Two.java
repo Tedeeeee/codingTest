@@ -6,48 +6,67 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Two {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int N = Integer.parseInt(br.readLine());
+    public static void main(String [] args) throws IOException {
+        BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
 
-        ArrayList<Integer[]> arr = new ArrayList<>();
-        for (int i = 0; i < N; i++) {
-            Integer[] two = new Integer[2];
-            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-            two[0] = Integer.parseInt(st.nextToken());
-            two[1] = Integer.parseInt(st.nextToken());
-            arr.add(two);
-        }
+        int N, total;
+        Student students[]= new Student[101];
+        List<Student> list= new ArrayList<>();
 
-        arr.sort((o1, o2) -> o1[0].equals(o2[0]) ? o1[1] - o2[1] : o1[0] - o2[0]);
+        N= Integer.parseInt(br.readLine());
+        total= Integer.parseInt(br.readLine());
 
-        int sum = 0;
-        while (!arr.isEmpty()) {
-            int min = Integer.MAX_VALUE;
-            for (Integer[] x : arr) {
-                if (x[1] > 0 && x[1] < min) {
-                    min = x[1];
-                }
+        st= new StringTokenizer(br.readLine());
+        int num;
+        for(int i=0; i<total; i++) {
+            num= Integer.parseInt(st.nextToken());
+            if(students[num]==null) {
+                students[num]= new Student(num, 0, 0, false);
             }
 
-            int size = arr.size();
-            int first = arr.get(0)[0];
-            int end = (arr.get(size - 1)[0]) + 1;
-
-            sum += (end - first) * min;
-
-            for (int i = 0; i < size; i++) {
-                Integer[] x = arr.get(i);
-                x[1] -= min;
-                if (x[1] <= 0) {
-                    arr.remove(x);
-                    size--;
-                    i--;
+            if(students[num].isPosted) {
+                students[num].cnt++;
+            }
+            else {
+                if(list.size()==N) {
+                    list.sort(new Comparator<Student>() {
+                        public int compare(Student o1, Student o2) {
+                            if (o1.cnt == o2.cnt) {
+                                return o1.time - o2.time;
+                            }
+                            return o1.cnt - o2.cnt;
+                        }
+                    });
+                    list.get(0).isPosted=false;
+                    list.remove(0);
                 }
+                students[num].cnt=1;
+                students[num].time=i;
+                students[num].isPosted=true;
+                list.add(students[num]);
             }
         }
 
-        System.out.println(sum);
+        list.sort((o1, o2) -> o1.idx - o2.idx);
+        for(Student i: list) {
+            System.out.print(i.idx+" ");
+        }
+
+    }
+
+    static class Student{
+        int idx;
+        int cnt;
+        int time;
+        boolean isPosted;
+
+        public Student(int idx, int cnt, int time, boolean isPosted) {
+            this.idx = idx;
+            this.cnt = cnt;
+            this.time = time;
+            this.isPosted = isPosted;
+        }
     }
 }
