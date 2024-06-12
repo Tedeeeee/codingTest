@@ -1,21 +1,24 @@
 package baekjoon.chap01;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int[] arr = new int[3];
-        for (int i = 0; i < 3; i++) {
-            arr[i] = sc.nextInt();
+        int max = Integer.MIN_VALUE;
+        int index = 0;
+
+        for (int i = 0; i < 9; i++) {
+            int num = Integer.parseInt(br.readLine());
+            if (num > max) {
+                index = i + 1;
+                max = num;
+            }
         }
 
-        Arrays.sort(arr);
-
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
+        System.out.println(max);
+        System.out.println(index);
     }
 }
