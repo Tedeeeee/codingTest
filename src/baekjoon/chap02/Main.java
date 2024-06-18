@@ -9,15 +9,32 @@ public class Main {
 
         int N = Integer.parseInt(br.readLine());
 
-        Map<Integer, Integer> map = new HashMap<>();
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
         for (int i = 0; i < N; i++) {
-            int num = Integer.parseInt(st.nextToken());
-            map.put(num, map.getOrDefault(num, 0) + 1);
-        }
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            String answer = "Possible";
+            int[] alpha = new int[26];
 
-        int target = Integer.parseInt(br.readLine());
-        if (map.containsKey(target)) System.out.println(map.get(target));
-        else System.out.println(0);
+            String origin = st.nextToken().toLowerCase();
+            String copy = st.nextToken().toLowerCase();
+
+            for (int j = 0; j < origin.length(); j++) {
+                int index = origin.charAt(j) - 'a';
+                alpha[index]++;
+            }
+
+            for (int j = 0; j < copy.length(); j++) {
+                int index = copy.charAt(j) - 'a';
+                alpha[index]--;
+            }
+
+            for (int k : alpha) {
+                if (k != 0) {
+                    answer = "Impossible";
+                    break;
+                }
+            }
+
+            System.out.println(answer);
+        }
     }
 }
