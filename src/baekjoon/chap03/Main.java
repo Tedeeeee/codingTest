@@ -7,33 +7,54 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        int N = Integer.parseInt(st.nextToken());
-        int count = Integer.parseInt(st.nextToken());
+        String str = br.readLine();
 
-        Queue<Integer> queue = new ArrayDeque<>();
-        for (int i = 1; i <= N; i++) {
-            queue.add(i);
+        Stack<Character> left = new Stack<>();
+        Stack<Character> right = new Stack<>();
+
+        for (int i = 0; i < str.length(); i++) {
+            left.push(str.charAt(i));
+        }
+
+        int N = Integer.parseInt(br.readLine());
+
+        for (int i = 0; i < N; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            String s = st.nextToken();
+
+            switch (s) {
+                case "P":
+                    left.push(st.nextToken().charAt(0));
+                    break;
+                case "L":
+                    if (!left.isEmpty()) {
+                        right.push(left.pop());
+                    }
+                    break;
+                case "D":
+                    if (!right.isEmpty()) {
+                        left.push(right.pop());
+                    }
+                    break;
+                case "B":
+                    if (!left.isEmpty()) {
+                        left.pop();
+                    }
+                    break;
+            }
+        }
+
+        while (!left.isEmpty()) {
+            right.push(left.pop());
         }
 
         StringBuilder sb = new StringBuilder();
-        sb.append("<");
-        while (!queue.isEmpty()) {
-            for (int i = 1; i < count; i++) {
-                Integer poll = queue.poll();
-                queue.add(poll);
-            }
-
-            int poll = queue.poll();
-            sb.append(poll);
-
-            if (queue.size() != 0) {
-                sb.append(", ");
-            } else {
-                sb.append(">");
-            }
+        int size = right.size();
+        for (int i = 0; i < size; i++) {
+            sb.append(right.pop());
         }
 
-        System.out.println(sb);
+        System.out.println(sb.toString());
     }
+
 }

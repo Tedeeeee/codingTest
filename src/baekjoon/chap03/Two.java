@@ -77,8 +77,8 @@ public class Two {
                     break;
                 case '-':
                     if (iterList.hasPrevious()) {
-                        iterList.previous();
                         iterList.remove();
+                        iterList.previous();
                     }
                     break;
                 default:
