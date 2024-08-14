@@ -1,4 +1,4 @@
-package baekjoon.chap04;
+package baekjoon.stackSol;
 
 import java.io.*;
 import java.util.*;
