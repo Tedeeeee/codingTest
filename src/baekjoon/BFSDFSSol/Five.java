@@ -1,4 +1,4 @@
-package baekjoon.BFSSol;
+package baekjoon.BFSDFSSol;
 
 import java.io.*;
 import java.util.*;
